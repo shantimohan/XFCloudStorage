@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Cloud Storage (XF)"
+             x:Class="XFCloudStorage.MainPage">
+
+    <ContentPage.Content>
+        <Grid
+            RowDefinitions="Auto,Auto,*,*"
+            RowSpacing="0"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+
+            <Frame
+                Grid.Row="0"
+                Margin="10,2"
+                Padding="5,2,5,5"
+                BackgroundColor="LightGreen"
+                BorderColor="Green"
+                CornerRadius="20"
+                HorizontalOptions="FillAndExpand">
+
+                <Grid
+                    RowDefinitions="Auto,Auto"
+                    ColumnDefinitions="*,*,*,*"
+                    HorizontalOptions="FillAndExpand">
+
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="4"
+                        Margin="10,2"
+                        BackgroundColor="Transparent"
+                        Text="Tap the Cloud Storage Service to Use"
+                        FontSize="Micro"
+                        HorizontalOptions="CenterAndExpand" />
+
+                    <Button
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        x:Name="GoogleDrive"
+                        Clicked="OnCloudStorageServiceSelected"
+                        Margin="2"
+                        BorderColor="Brown"
+                        BorderWidth="3"
+                        CornerRadius="10"
+                        BackgroundColor="Transparent"
+                        TextColor="Black"
+                        FontSize="12"
+                        Text="Google Drive"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand" />
+
+                    <Button
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        x:Name="OneDrive"
+                        Clicked="OnCloudStorageServiceSelected"
+                        Margin="2"
+                        BorderColor="Brown"
+                        BorderWidth="3"
+                        CornerRadius="10"
+                        BackgroundColor="Transparent"
+                        TextColor="Black"
+                        FontSize="12"
+                        Text="One Drive"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand" />
+
+                    <Button
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        x:Name="DropBox"
+                        Clicked="OnCloudStorageServiceSelected"
+                        Margin="2"
+                        BorderColor="Brown"
+                        BorderWidth="3"
+                        CornerRadius="10"
+                        BackgroundColor="Transparent"
+                        TextColor="Black"
+                        FontSize="12"
+                        Text="DropBox"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand" />
+
+                    <Button
+                        Grid.Row="1"
+                        Grid.Column="3"
+                        x:Name="iCloud"
+                        Clicked="OnCloudStorageServiceSelected"
+                        Margin="2"
+                        BorderColor="Brown"
+                        BorderWidth="3"
+                        CornerRadius="10"
+                        BackgroundColor="Transparent"
+                        TextColor="Black"
+                        FontSize="12"
+                        Text="iCloud"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand" />
+
+                </Grid>
+            </Frame>
+
+            <Frame
+                Grid.Row="1"
+                Margin="10,2"
+                Padding="5,2,5,5"
+                BackgroundColor="LightGoldenrodYellow"
+                BorderColor="Red"
+                CornerRadius="20"
+                HorizontalOptions="FillAndExpand">
+
+                <StackLayout
+                    Margin="5,0"
+                    Orientation="Horizontal"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="CenterAndExpand">
+
+                    <Label
+                        Text="File Name:"
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center"
+                        FontSize="Small" />
+
+                    <Entry
+                        x:Name="FileName"
+                        Text="TestFile.txt"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Center" />
+                </StackLayout>
+            </Frame>
+
+            <Frame
+                Grid.Row="2"
+                Margin="10,2"
+                Padding="5,2,5,5"
+                BackgroundColor="LightBlue"
+                BorderColor="Blue"
+                CornerRadius="20"
+                HorizontalOptions="FillAndExpand">
+
+                <Grid
+                    RowDefinitions="Auto,5,*,5,Auto"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand">
+
+                    <StackLayout
+                        Grid.Row="0"
+                        Margin="5,2"
+                        Orientation="Horizontal"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="CenterAndExpand">
+
+                        <Label
+                            Text="Type Contents to Save to File"
+                            HorizontalOptions="StartAndExpand"
+                            VerticalOptions="Center" />
+
+                        <Button
+                            Text="Clear"
+                            Clicked="OnClearContents2Save"
+                            Padding="2"
+                            TextColor="Black"
+                            FontSize="12"
+                            BackgroundColor="Transparent"
+                            BorderColor="Brown"
+                            BorderWidth="3"
+                            CornerRadius="10"
+                            HorizontalOptions="EndAndExpand"
+                            VerticalOptions="Center" />
+                    </StackLayout>
+
+                    <Frame
+                        Grid.Row="1"
+                        Margin="5,2"
+                        Padding="0"
+                        BorderColor="Gray"
+                        BackgroundColor="Gray"
+                        HeightRequest="1"
+                        HorizontalOptions="FillAndExpand" />
+
+                    <ScrollView
+                        Grid.Row="2"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand">
+                        <Editor
+                            x:Name="Contents2Save"
+                            Text="This is the content that will be saved using Google Drive service. It will be saved to the file name given above when you press the [Save to File] button."
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand" />
+                    </ScrollView>
+
+                    <Frame
+                        Grid.Row="3"
+                        Margin="5,2"
+                        Padding="0"
+                        BorderColor="Gray"
+                        BackgroundColor="Gray"
+                        HeightRequest="1"
+                        HorizontalOptions="FillAndExpand" />
+                    
+                    <Button
+                        Grid.Row="4"
+                        Text="Save to File"
+                        Clicked="OnSave2File"
+                        Margin="5,2"
+                        Padding="2"
+                        TextColor="Black"
+                        FontSize="Small"
+                        BackgroundColor="Transparent"
+                        BorderColor="Brown"
+                        BorderWidth="3"
+                        CornerRadius="10"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Center" />
+                </Grid>
+            </Frame>
+
+            <Frame
+                Grid.Row="3"
+                Margin="10,2"
+                Padding="5,2,5,5"
+                BackgroundColor="LightGray"
+                BorderColor="DarkGray"
+                CornerRadius="20"
+                HorizontalOptions="FillAndExpand">
+
+                <Grid
+                    RowDefinitions="Auto,Auto,5,*"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand">
+
+                    <Button
+                        Grid.Row="0"
+                        Text="Read from File"
+                        Clicked="OnReadFromFile"
+                        Margin="5,2"
+                        Padding="2"
+                        TextColor="Black"
+                        FontSize="Small"
+                        BackgroundColor="Transparent"
+                        BorderColor="Brown"
+                        BorderWidth="3"
+                        CornerRadius="10"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Center" />
+
+                    <Label
+                        Grid.Row="1"
+                        Margin="5,2"
+                        Text="Contents Read from File:"
+                        HorizontalOptions="StartAndExpand"
+                        VerticalOptions="Center" />
+
+                    <Frame
+                        Grid.Row="2"
+                        Margin="5,2"
+                        Padding="0"
+                        BorderColor="Gray"
+                        BackgroundColor="Gray"
+                        HeightRequest="1"
+                        HorizontalOptions="FillAndExpand" />
+
+                    <ScrollView
+                        Grid.Row="3"
+                        VerticalScrollBarVisibility="Always"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand">
+                        <Label
+                            x:Name="ContentsRead"
+                            Margin="5,0,5,5"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand" />
+                    </ScrollView>
+                </Grid>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>
